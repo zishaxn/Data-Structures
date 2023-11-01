@@ -1,2 +1,2 @@
-package arrays;public class SwapNUmbers {
+package arrays;public class SwapNumbers {
 }

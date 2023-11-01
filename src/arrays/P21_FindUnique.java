@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //Approach 1: simple sort, and then a loop --> O(nlogn)
 //Approach 2: using XOR , we know 1^5^5 = 1 , therefor 1^5^1^6^3^5^6  = 3. --> o(n)
-public class FindUnique {
+public class P21_FindUnique {
     public static void main(String[] args) {
         int[]arr = {1,5,1,6,3,5,6};  //Expected output: 3
         System.out.println(uniqueNumber1(arr));

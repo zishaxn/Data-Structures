@@ -1,6 +1,6 @@
 package arrays;
 
-public class TimeNeededToBuyTickets {
+public class P1_TimeNeededToBuyTickets {
     //2073. Time Needed to Buy Tickets
     public static void main(String[] args) {
         int[] arr = {2, 3,5, 2, 4, 6, 1};
