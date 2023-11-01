@@ -2,7 +2,7 @@ package patterns.characters;
 
 import java.util.Scanner;
 
-//A
+                                                 //A
                                                 // BB
                                                 // CCC
 public class Pattern2 {
