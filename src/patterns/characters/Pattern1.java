@@ -1,2 +1,3 @@
-package patterns.characters;public class Pattern1 {
+package patterns.characters;
+public class Pattern1 {
 }
