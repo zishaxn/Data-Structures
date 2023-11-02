@@ -1,0 +1,25 @@
+Strings are Immutable in Java. means that once declared and initialized you can not change the original value ,
+ if you try to do so it will create  new reference for that while leaving the original value as it is and when
+ no object points to that value it will be automatically removed when garbage collector hits.
+ Eg:
+ String name = "Zishan";
+         System.out.println(name); // zishan
+         name="raj";
+         System.out.println(name);  //raj
+ In this eg the name was re-assigned to another value so original value will be collected when garbage collector hits.1
+ -----------------------------------------------------------------------------------------------------------------------
+### compareTo method:
+         String a ="abcd";
+         String b="abcda";
+         System.out.println(b.compareTo(a));
+Here we are comparing b with a so it will check b how has how many more/less chars than a : in this case it will print 1 :
+         String a ="abcd";
+         String b="abcda";
+         System.out.println(a.compareTo(b));
+here we are doing vice versa so it will print -1 as a is compared to b.
+-----------------------------------------------------------------------------------------------------------------------
+In java two types of storage is there in memories:
+stack: all the non primitives , local, int char, etc
+heap:  all the primitives , String , arrays etc
+--> whenever a non-primitive data is created its address(reference) is stored in the stack memory and the actual data is
+    stored in the heap memory so a reference is passed to th variable in stack memory

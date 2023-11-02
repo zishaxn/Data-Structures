@@ -1,2 +1,4 @@
-package arrays;public class ArrangeNumbers {
+package arrays;
+public class ArrangeNumbers {
+
 }
