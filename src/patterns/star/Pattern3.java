@@ -1,7 +1,11 @@
 package patterns.star;
 
 import java.util.Scanner;
+/*
 
+
+
+*/
 public class Pattern3 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
@@ -57,7 +61,8 @@ public class Pattern3 {
                 System.out.print(" ");
             }
 
-            int stars = 2*n-spaces*2-1;
+//            int stars = 2*n-spaces*2-1;
+            int stars = (2*(n-spaces))-1;
             for (int star = 1; star <=stars ; star++) {
                 System.out.print("*");
             }

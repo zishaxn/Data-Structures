@@ -4,8 +4,8 @@ public class P1_TimeNeededToBuyTickets {
     //2073. Time Needed to Buy Tickets
     public static void main(String[] args) {
         int[] arr = {2, 3,5, 2, 4, 6, 1};
-        int[]arr1 ={5,4,3,2,1};
-        System.out.println(timeToBuy(arr1, 2));
+        int[]arr1 ={4,2,3,1};
+        System.out.println(timeToBuy(arr1, 1));
 
 //        2 3 5 2 4 6 1 --initial
 //        3 5 2 4 6 1 1

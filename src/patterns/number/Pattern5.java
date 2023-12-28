@@ -1,7 +1,7 @@
 package patterns.number;
 
 import java.util.Scanner;
-                                    // 1  2  3  4  4  3  2  1    // no os stars are 2*row.
+                                    // 1  2  3  4  4  3  2  1    // no of stars are 2*row.
                                     // 1  2  3  *  *  3  2  1
                                     // 1  2  *  *  *  *  2  1
                                     // 1  *  *  *  *  *  *  1

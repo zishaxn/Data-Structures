@@ -19,7 +19,6 @@ public class Pattern2 {
             ch+=i;
             for (int j = 0; j <=i; j++) {
                 System.out.print(ch);
-               ch+=1;
             }
             ch='A';
 

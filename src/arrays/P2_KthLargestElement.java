@@ -15,15 +15,7 @@ public class P2_KthLargestElement {
 
     private static int findKthLargest(int[] nums, int k) {
         Arrays.sort(nums);
-        for (int i : nums) {
-            if(k==0){
-                return i;
-            }
-            else{
-                k--;
-            }
-        }
-        return 0;
+        return nums[nums.length-k];
     }
 
 

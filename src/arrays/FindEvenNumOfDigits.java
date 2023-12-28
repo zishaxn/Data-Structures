@@ -1,11 +1,15 @@
 package arrays;
 
 //1295 find even num of digits
+
+//simple find if num of digits in each individual nums are even if yes then incrase count by 1
+// to find num of digits num/10 ==> loop
 public class FindEvenNumOfDigits {
     public static void main(String[] args) {
         int[] arr = {52, 4823, 321, 1111, 2};
         System.out.println(findNumbers(arr));
     }
+
 
     public static int findNumbers(int[] nums) {
 

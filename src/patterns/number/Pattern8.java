@@ -25,8 +25,10 @@ public class Pattern8 {
                     System.out.print(num);
                     num++;
                 }
+                num = num-2;
                 for (int j = i; j >=2 ; j--) {
-                    System.out.print(j);
+                    System.out.print(num);
+                    num--;
                 }
                 System.out.println();
             }

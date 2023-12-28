@@ -2,7 +2,7 @@ package patterns.number;
 
 import java.util.Scanner;
 
-//1
+                                //1
                                 //21
                                 //321
                                 //4321

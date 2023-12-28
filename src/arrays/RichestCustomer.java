@@ -3,8 +3,27 @@ package arrays;
 //1672. Richest Customer Wealth
 public class RichestCustomer {
     public static void main(String[] args) {
-        int[][]accounts = {{1,5},{7,3},{3,5}};
-        System.out.println(maxWealth(accounts));
+        int[][]accounts = {{1,5},{7,3},{3,5},{8,9}};
+        System.out.println(maxWealth1(accounts));
+    }
+
+    private static int maxWealth1(int[][] accounts) {
+        int maxSum = 0;
+        for(int[]account:accounts){
+            int currSum = findSum(account);
+            if(currSum>maxSum){
+                maxSum=currSum;
+            }
+        }
+        return maxSum;
+    }
+
+    private static int findSum(int[] account) {
+        int sum =0;
+        for (int j : account) {
+            sum = sum + j;
+        }
+        return sum;
     }
 
     private static int maxWealth(int[][] accounts) {

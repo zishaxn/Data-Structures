@@ -4,7 +4,7 @@ package arrays;
 import java.util.HashMap;
 
 // 287. Find the Duplicate Number
-// different thant normal duplicate array, coz here array contains {1,n} and total no of elements n+1;
+// different thant normal duplicate array, coz here array contains {1,n-1} and total no of elements n+1;
 public class P5_FindDuplicateLC {
     public static void main(String[] args) {
         int[]arr = {1,2,3,4,1};

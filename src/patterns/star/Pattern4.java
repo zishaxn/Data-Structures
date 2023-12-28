@@ -23,10 +23,10 @@ public class Pattern4 {
     }
 
     public static void  print(int n) {
-        for (int row = 0; row <2*n ; row++) {
+        for (int row = 1; row <=2*n ; row++) {
 
-            int cols = row > n ? 2 * n - row: row;
-            for (int i = 0; i < cols; i++) {
+            int cols = row>n ? 2*n - row: row;
+            for (int i = 1; i <=cols ; i++) {
                 System.out.print("* ");
             }
             System.out.println();

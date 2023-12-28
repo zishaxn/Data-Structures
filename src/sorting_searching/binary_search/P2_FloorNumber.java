@@ -3,7 +3,7 @@ package sorting_searching.binary_search;
 public class P2_FloorNumber {
     public static void main(String[] args) {
         int[] arr = {11,13,14,15,18,19};
-        int num =10 ;
+        int num =17 ;
         System.out.println(floorOfNumber(arr, num));
     }
 
