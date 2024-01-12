@@ -2,7 +2,7 @@ package Strings;
 
 import java.util.Objects;
 
-public class P1_CheckPalindrome {
+public class    P1_CheckPalindrome {
     public static void main(String[] args) {
         String str = "AM";
         System.out.println(isPalindrome2(str));

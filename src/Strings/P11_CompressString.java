@@ -11,9 +11,11 @@ package Strings;
 
 public class P11_CompressString {
     public static void main(String[] args) {
-        String s = "aaabbcddeeeee";
+        String s = "aaabbcddeeeeem";
         System.out.println(compressString(s));
     }
+
+
 
     private static String compressString(String s) {
         int n = s.length() - 1;
@@ -32,6 +34,7 @@ public class P11_CompressString {
                 count = 1;
             }
         }
+        
         if (count != 1) {
             output = output + s.charAt(i) + count;
         } else {

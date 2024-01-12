@@ -2,7 +2,7 @@
 
 public class DeleteDuplicateChar {
     public static void main(String[] args) {
-        String s = "ijkjik";
+        String s = "ijjjjkjik";
         System.out.println(delete(s));
     }
 

@@ -1,4 +1,9 @@
 package Strings;
+/* What we can do is first convert the string into arrays of strings .
+* Then on each string iterating and reversing it and then we can use String.join() method that takes two argumnets
+* one delimiter and other the arryay of string.it converts an array of strings into a string*/
+
+
 
 public class P4_ReverseEachWord {
     public static void main(String[] args) {

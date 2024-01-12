@@ -2,7 +2,7 @@ package Strings;
 
 public class P3_ReverseString {
     public static void main(String[] args) {
-        String str = "Zishan";
+        String str = "Welcome to Coding Ninjas";
         System.out.println(reverse1(str));
     }
 

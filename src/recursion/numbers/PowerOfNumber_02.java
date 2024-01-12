@@ -1,4 +1,4 @@
-package recursion;
+package recursion.numbers;
 
 public class PowerOfNumber_02 {
     public static void main(String[] args) {
