@@ -2,7 +2,7 @@ package recursion.maths;
 public class CheckStringOrder {
     public static void main(String[] args) {
         String str1 = "abec";
-        String target = "etc";
+        String target = "atc";
         System.out.println(checkSequence(str1, target));
         //System.out.println(target.length());
     }

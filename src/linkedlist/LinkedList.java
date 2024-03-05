@@ -1,14 +1,14 @@
 package linkedlist;
 
-public class LL {
+public class LinkedList {
 
     //    objects of the class
-    private Node head; // The first node in the linked list
-    private Node tail; // The last node in the linked list
-    private int size;   // The size of the linked list
+    public ListNode head; // The first node in the linked list
+    public ListNode tail; // The last node in the linked list
+    public int size;   // The size of the linked list
 
     // Constructor: Initializes an empty linked list
-    public LL() {
+    public LinkedList() {
         this.size = 0;
     }
 
@@ -18,9 +18,9 @@ public class LL {
         head = insertRecur(value, index, head);
     }
 
-    private Node insertRecur(int value, int index, Node node) {
+    private ListNode insertRecur(int value, int index, ListNode node) {
         if (index == 0) {
-            Node temp = new Node(value, node);
+            ListNode temp = new ListNode(value, node);
             size++;
             return temp;
         }
@@ -31,12 +31,12 @@ public class LL {
     }
 
 
-    private void helperInsert(int value, int index, int currIndex, Node temp) {
+    private void helperInsert(int value, int index, int currIndex, ListNode temp) {
         if (currIndex != index - 1) {
             helperInsert(value, index, currIndex + 1, temp.next);
             return;
         }
-        Node node = new Node(value);
+        ListNode node = new ListNode(value);
         if (index == 0) {
             insertFirst(value);
             return;
@@ -64,7 +64,7 @@ public class LL {
 
     // Insert a new node with the given value at the beginning of the linked list
     public void insertFirst(int value) {
-        Node node = new Node(value);
+        ListNode node = new ListNode(value);
         node.next = head; // Set the next of the new node to the current head
         head = node;      // Update the head to the new node
 
@@ -84,7 +84,7 @@ public class LL {
             return;
         }
 
-        Node node = new Node(value);
+        ListNode node = new ListNode(value);
         tail.next = node; // Set the next of the current tail to the new node
         tail = node;      // Update the tail to the new node
         size += 1;        // Increment the size of the linked list
@@ -104,21 +104,21 @@ public class LL {
             return;
         }
 
-        Node temp = head;
+        ListNode temp = head;
         // Traverse the linked list to find the node at the index - 1 position
         for (int i = 0; i < index - 1; i++) {
             temp = temp.next;
         }
 
         // Create a new node with the given value and set its next to the next of temp
-        Node node = new Node(value, temp.next);
+        ListNode node = new ListNode(value, temp.next);
         temp.next = node; // Update the next of temp to the new node
         size++;           // Increment the size of the linked list
     }
 
     // Print the elements of the linked list
     public void print() {
-        Node temp = head;
+        ListNode temp = head;
         while (temp != null) {
             System.out.print(temp.val + " --> ");
             temp = temp.next;
@@ -126,8 +126,8 @@ public class LL {
         System.out.println("END");
     }
 
-    public static void print(Node head) {
-        Node temp = head;
+    public static void print(ListNode head) {
+        ListNode temp = head;
         while (temp != null) {
             System.out.print(temp.val + " --> ");
             temp = temp.next;
@@ -149,7 +149,7 @@ public class LL {
             return;
         }
 
-        Node temp = head;
+        ListNode temp = head;
         // Traverse the linked list to find the node at the index - 1 position
         for (int i = 0; i < index - 1; i++) {
             temp = temp.next;
@@ -168,7 +168,7 @@ public class LL {
 
     // Delete the last node in the linked list
     public void deleteLast() {
-        Node temp = head;
+        ListNode temp = head;
         // Traverse the linked list to find the second-to-last node
         while (temp.next != tail) {
             temp = temp.next;
@@ -178,37 +178,38 @@ public class LL {
         size--;           // Decrement the size of the linked list
     }
 
-    // Node class represents an element in the linked list
-    private class Node {
+    // ListNode class represents an element in the linked list
+    private class ListNode {
         int val;       // Value of the node
-        Node next;       // Reference to the next node
-        Node previous;   // Reference to the previous node (not used in your code)
+        ListNode next;       // Reference to the next node
+        ListNode previous;   // Reference to the previous node (not used in your code)
 
         // Constructor: Initializes a node with the given value
-        public Node(int value) {
+        public ListNode(int value) {
             this.val = value;
         }
 
         // Constructor: Initializes a node with the given value and next node
-        public Node(int value, Node next) {
+        public ListNode(int value, ListNode next) {
             this.val = value;
             this.next = next;
         }
 
-        public Node() {
+        public ListNode() {
 
         }
     }
 
-    /* *****************************************************************************************
-     * Below Problems are part of practise problems,
-     * they should not be tried to solve before understanding of internal implementation of LL*/
-    public Node P1_deleteDuplicates() {
-        Node temp = head;
+
+//  ******************** Problems **********************/////////
+
+    //    problem 1
+//    https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode temp = head;
         while (temp != null && temp.next != null) {
-            if (temp.val == temp.next.val) {
+            if (temp.next.val == temp.val) {
                 temp.next = temp.next.next;
-                size--;
             } else {
                 temp = temp.next;
             }
@@ -216,51 +217,96 @@ public class LL {
         return head;
     }
 
-    public LL P2_mergeTwoLists(Node list1, Node list2) {
-        LL ans = new LL();
-        Node t1 = head;
-        System.out.println(t1);
-        Node t2 = head;
-        System.out.println(t2);
+    //    problem 2
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+
+        ListNode t1 = l1;
+        ListNode t2 = l2;
+        ListNode ans = new ListNode(0);
+        ListNode t3 = ans;
 
         while (t1 != null && t2 != null) {
             if (t1.val < t2.val) {
-                ans.insertLast(t1.val);
+                t3.next = t1;
                 t1 = t1.next;
+                t3 = t3.next;
             } else {
-                ans.insertLast(t2.val);
+                t3.next = t2;
                 t2 = t2.next;
+                t3 = t3.next;
             }
         }
 
         while (t1 != null) {
-            ans.insertLast(t1.val);
+            t3.next = t1;
             t1 = t1.next;
+            t3 = t3.next;
         }
         while (t2 != null) {
-            ans.insertLast(t2.val);
+            t3.next = t2;
             t2 = t2.next;
+            t3 = t3.next;
         }
-        return ans;
+
+        return ans.next;
     }
 
-    public static Node P7_middleNode(Node head) {
-        Node temp = head;
-        int length = 0;
-        while (temp != null) {
-            temp = temp.next;
-            length++;
+
+    //    problem 3
+//    https://leetcode.com/problems/sort-list
+    public ListNode sortList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-        temp = head;
-        for (int i = 0; i < length / 2; i++) {
-            temp = temp.next;
+
+
+        ListNode slow = head, fast = head, prev = null;
+
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return temp;
+
+        prev.next = null;
+        ListNode left = sortList(head);
+        ListNode right = sortList(slow);
+
+        return mergeTwoLists(left, right);
     }
 
-    public static Node P7_middleNode2(Node head) {
-        Node slow = head;
-        Node fast = head;
+    // problem 4
+//    https://leetcode.com/problems/reverse-linked-list
+    public ListNode reverseList(ListNode node) {
+        if (node == null) {
+            return null;
+        }
+
+        ListNode prev = null;
+        ListNode current = node;
+        ListNode next;
+
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev; // updating the head to the last node
+        return prev;
+    }
+
+    //    problem 5
+//    https://leetcode.com/problems/middle-of-the-linked-list/
+    public ListNode middleNode(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
 
         while (fast != null && fast.next != null) {
             slow = slow.next;
@@ -269,116 +315,20 @@ public class LL {
         return slow;
     }
 
-    //    using recursion and tail
-    public Node P8_reverseLinkedList(Node node) {
-        if (node == tail) {
-            head = tail;
-            return head;
-        }
+    //    problem 6
+//    https://leetcode.com/problems/palindrome-linked-list
+    public boolean isPalindrome(ListNode head) {
+        ListNode mid = middleNode(head);
+        ListNode reversedHead = reverseList(mid);
 
-        head = P8_reverseLinkedList(node.next);
-//         Ek hi node hai jo hai 1--> null // ye hi tail bhi hai head bhi hai
-        tail.next = node; // 1--> 2
-        tail = node;     // (head)1-->2 (tail)
-        tail.next = null;   // 1--> 2 --> |0|
-
-        return head;
-    }
-
-
-    //    using loop and without tail
-    public Node P8_reverseLinkedList2(Node node) {
-        if (node == null) {
-            return null;
-        }
-        Node prev = null;
-        Node present = node;
-        Node next = present.next;
-        while (present != null) {
-            present.next = prev;
-            prev = present;
-            present = next;
-            if (next != null) {
-                next = next.next;
-            }
-        }
-        return prev;
-    }
-
-    public Node P10_reverseBetween(Node node, int left, int right) {
-        Node head = node;
-        // Create a dummy node to handle cases where left = 1
-        Node dummy = new Node(0);
-        dummy.next = node;
-
-        // Find the nodes at positions left-1 and right
-        Node start = dummy;
-        Node end = dummy;
-        for (int i = 0; i < left - 1; i++) {
-            start = start.next;
-        }
-        System.out.println(start.val);
-        for (int i = 0; i < right; i++) {
-            end = end.next;
-        }
-
-        // Store the next node of the right end
-        Node temp = end.next;
-        end.next = null;
-
-        // Reverse the sublist from start.next to end
-        Node reversedSublist = P8_reverseLinkedList2(start.next);
-
-        // Connect the reversed sublist to the original list
-        start.next = reversedSublist;
-
-        // Find the end of the reversed sublist
-        Node reversedEnd = reversedSublist;
-        while (reversedEnd.next != null) {
-            reversedEnd = reversedEnd.next;
-        }
-
-        // Connect the end of the reversed sublist to the node after the right end
-        reversedEnd.next = temp;
-
-        return dummy.next; // Return the head of the modified list
-    }
-
-    public boolean isPalindrome(Node head) {
-
-        if(head==null || head.next==null || head.next.next==null){
-            return false;
-        }
-        Node mid = P7_middleNode2(head);
-        Node reversedSecondList = P8_reverseLinkedList2(mid);
-
-        print(reversedSecondList);
-        print(head);
-        while(head!=null && reversedSecondList!=null){
-            if(head.val!=reversedSecondList.val){
+        while (head != null && reversedHead != null) {
+            if (head.val != reversedHead.val) {
                 return false;
             }
-            head=head.next;
-            reversedSecondList=reversedSecondList.next;
+            head = head.next;
+            reversedHead = reversedHead.next;
         }
+
         return true;
-    }
-
-    public static void main(String[] args) {
-
-        LL l1 = new LL();
-        l1.insert(0, 1);
-        l1.insert(1, 2);
-        l1.insert(2, 3);
-        l1.insert(3, 4);
-        l1.insert(4, 1);
-
-        System.out.println(l1.isPalindrome(l1.head));
-
-
-
-
-
-
     }
 }

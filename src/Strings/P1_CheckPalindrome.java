@@ -11,6 +11,7 @@ public class    P1_CheckPalindrome {
     }
 
     private static boolean isPalindrome2(String str) {
+        str = str.replaceAll("[^a-zA-z0-9]","").toLowerCase();
         int start = 0;
         int end = str.length()-1;
         while(start<end){

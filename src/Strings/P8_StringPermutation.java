@@ -10,6 +10,8 @@ public class P8_StringPermutation {
         String s1 = "abcge";
         String s2 = "eabgc";
         System.out.println(checkPermutation2(s1,s2));
+
+        String s = "ABCDBABCBM";
     }
 
     private static boolean checkPermutation2(String string1, String string2) {

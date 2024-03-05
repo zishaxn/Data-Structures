@@ -19,25 +19,6 @@ public class P10_HighestOccurring {
 //        System.out.println(highest2(s));
         System.out.println(highestOccurring(s));
     }
-
-    private static char highest2(String s) {
-        HashMap<Character,Integer>map = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
-        }
-        int max= 0;
-        char resultChar = '\0';
-
-        for(Map.Entry<Character, Integer> entry : map.entrySet()){
-            if(entry.getValue()>max){
-                max=entry.getValue();
-                resultChar=entry.getKey();
-            }
-        }
-        return  resultChar;
-
-    }
-
     private static char highest(String s) {
         int[] arr = new int[256];
         for (int i = 0; i < s.length(); i++) {
